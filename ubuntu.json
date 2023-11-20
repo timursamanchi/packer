@@ -13,7 +13,6 @@
     "provisioners": [{
             "type": "shell",
             "inline": [
-                "echo 'Hello, World!' > /tmp/hello.txt",
                 "sudo apt-get update",
                 "sudo apt-get -y upgrade",
                 "sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \\",
