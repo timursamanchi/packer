@@ -5,8 +5,9 @@
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
         "ami_name": "packer {{timestamp}}",
+        "description": "ubuntu bsased jenkins master server",
         "tags": {
-            "Name": "ubuntu-server"
+            "Name": "jenkins-server"
         }
     }],
     "provisioners": [{
@@ -28,4 +29,3 @@
         ]
     }]
 }
-
