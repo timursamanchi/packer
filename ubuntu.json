@@ -5,9 +5,8 @@
         "instance_type": "t2.micro",
         "ssh_username": "ubuntu",
         "ami_name": "packer {{timestamp}}",
-        "description": "ubuntu bsased jenkins master server",
         "tags": {
-            "Name": "jenkins-server"
+            "Name": "jenkins-master"
         }
     }],
     "provisioners": [{
@@ -21,10 +20,13 @@
                 "    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \\",
                 "    /etc/apt/sources.list.d/jenkins.list > /dev/null",
                 "sudo apt-get update",
-                "sudo apt-get -y install fontconfig openjdk-11-jre",
+                "sudo apt-get -y install fontconfig openjdk-11-jdk",
+                "sudo apt-get -y install nginx",
                 "sudo apt-get -y install jenkins",
                 "sudo systemctl start jenkins",
-                "sudo systemctl enable jenkins"
+                "sudo systemctl restart nginx",
+                "sudo systemctl enable jenkins",
+                "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
         ]
     }]
 }
