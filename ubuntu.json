@@ -6,7 +6,7 @@
         "ssh_username": "ubuntu",
         "ami_name": "packer {{timestamp}}",
         "tags": {
-            "Name": "test-8"
+            "Name": "test-9"
         }
     }],
     "provisioners": [{
@@ -28,6 +28,7 @@
                 "sudo apt-get -y install fontconfig openjdk-11-jre",
                 "sudo apt-get -y install jenkins",
                 "sudo systemctl start jenkins",
+                "sudo systemctl restart nginx",
                 "sudo systemctl enable jenkins"
         ]
     }]
