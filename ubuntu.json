@@ -6,7 +6,7 @@
         "ssh_username": "ubuntu",
         "ami_name": "packer {{timestamp}}",
         "tags": {
-            "Name": "test-7"
+            "Name": "test-8"
         }
     }],
     "provisioners": [{
@@ -24,6 +24,7 @@
                 "sudo apt-get update",
                 "sudo apt-get -y install python3",
                 "sudo apt-get -y install python3-pip",
+                "sudo pip3 install awsebcli",
                 "sudo apt-get -y install fontconfig openjdk-11-jre",
                 "sudo apt-get -y install jenkins",
                 "sudo systemctl start jenkins",
