@@ -6,28 +6,27 @@
         "ssh_username": "ubuntu",
         "ami_name": "packer {{timestamp}}",
         "tags": {
-            "Name": "jenkins-master"
+            "Name": "test-6"
         }
     }],
     "provisioners": [{
             "type": "shell",
             "inline": [
+                "echo 'Hello, World!' > /tmp/hello.txt",
                 "sudo apt-get update",
                 "sudo apt-get -y upgrade",
-                "sudo apt-get -y install build-essential",
+                "sudo apt-get -y install nginx",
                 "sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \\",
                 "   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key",
                 "echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \\",
                 "    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \\",
                 "    /etc/apt/sources.list.d/jenkins.list > /dev/null",
                 "sudo apt-get update",
-                "sudo apt-get -y install fontconfig openjdk-11-jdk",
-                "sudo apt-get -y install nginx",
+                "sudo apt -y install python3",
+                "sudo apt-get -y install fontconfig openjdk-11-jre",
                 "sudo apt-get -y install jenkins",
                 "sudo systemctl start jenkins",
-                "sudo systemctl restart nginx",
-                "sudo systemctl enable jenkins",
-                "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
+                "sudo systemctl enable jenkins"
         ]
     }]
 }
