@@ -6,7 +6,7 @@
         "ssh_username": "ubuntu",
         "ami_name": "packer {{timestamp}}",
         "tags": {
-            "Name": "test-6"
+            "Name": "test-7"
         }
     }],
     "provisioners": [{
@@ -22,7 +22,8 @@
                 "    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \\",
                 "    /etc/apt/sources.list.d/jenkins.list > /dev/null",
                 "sudo apt-get update",
-                "sudo apt -y install python3",
+                "sudo apt-get -y install python3",
+                "sudo apt-get -y install python3-pip",
                 "sudo apt-get -y install fontconfig openjdk-11-jre",
                 "sudo apt-get -y install jenkins",
                 "sudo systemctl start jenkins",
